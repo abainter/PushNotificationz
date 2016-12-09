@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "875962748120",
+    "firebase_url": "https://pushnotificationz-ded22.firebaseio.com",
+    "project_id": "pushnotificationz-ded22",
+    "storage_bucket": "pushnotificationz-ded22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875962748120:android:0a66a268e8fed6c9",
+        "android_client_info": {
+          "package_name": "cornez.com.pushnotificationz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875962748120-b4nn1vur1nf06vdiuvnvq3uhulqaq98u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsCab4pAkHHJ8Z1GbWj3T87IsrIdnoKJM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
