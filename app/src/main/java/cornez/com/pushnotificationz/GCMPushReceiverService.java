@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,7 +27,6 @@ public class GCMPushReceiverService extends GcmListenerService {
         String message = data.getString("message");
         //displaying a notification with the data
         sendNotification(message);
-        Log.w("MessageReceived","Holy shit we got a message?");
     }
 
     //this method is generating a notification and displaying the notification
