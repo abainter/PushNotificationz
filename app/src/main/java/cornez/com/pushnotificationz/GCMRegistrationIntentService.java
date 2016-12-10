@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 /**
  * Created by andrewbainter13 on 12/9/2016.
