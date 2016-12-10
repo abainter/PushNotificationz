@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PushNotificationz</string>
+    <string name="csc490">CSC 490</string>
+    <string name="send">Send notification</string>
 </resources>

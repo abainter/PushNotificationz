@@ -1,5 +1,7 @@
 package cornez.com.pushnotificationz;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +10,9 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     //creating a broadcast receiver for gcm registration
     private BroadcastReceiver mRegistrationBroadcastReceiver;
+    private TextView tv1;
+    private TextView tv2;
+    private Button b1;
+    private EditText et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +55,35 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     Toast.makeText(getApplicationContext(), "Error occured", Toast.LENGTH_LONG).show();
                 }
+
+
+                et=(EditText)findViewById(R.id.body);
+                tv1=(TextView)findViewById(R.id.name);
+                tv2=(TextView)findViewById(R.id.csc490);
+                b1=(Button)findViewById(R.id.send);
+
+                b1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String tittle=tv1.getText().toString().trim();
+                        String subject=tv2.getText().toString().trim();
+                        String body=et.getText().toString().trim();
+
+                        NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                        Notification notify=new Notification.Builder
+                                (getApplicationContext()).setContentTitle(tittle).setContentText(body).
+                                setContentTitle(subject).setSmallIcon(R.mipmap.ic_launcher).build();
+
+                        notify.flags |= Notification.FLAG_AUTO_CANCEL;
+                        notif.notify(0, notify);
+                    }
+                });
+
+
+
+
+
+
             }
         };
 
