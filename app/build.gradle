@@ -29,9 +29,6 @@ dependencies {
 
     //this line is added
     compile 'com.google.android.gms:play-services-gcm:10.0.1'
-
-
 }
-
 //this line is added
 apply plugin: 'com.google.gms.google-services'

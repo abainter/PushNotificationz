@@ -39,24 +39,18 @@ public class GCMRegistrationIntentService extends IntentService {
         try{
             //creating an instanceid
             InstanceID instanceID = InstanceID.getInstance(getApplicationContext());
-
             //getting token from instance id
-            token = instanceID.getToken(getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
-
+            token = instanceID.getToken(getString(R.string.gcm_defaultSenderId), GoogleCloudMessaging.INSTANCE_ID_SCOPE);
             //displaying the token in the log so that we can copy it to send push notification
-            //you can also extend the app by storing the token to your server
             Log.w("GCMRegIntentService", "token:"+token);
-
             //on registration complete creating instance with success
             registrationComplete = new Intent(REGISTRATION_SUCCESS);
-
             //putting the token to the intent
             registrationComplete.putExtra("token", token);
         } catch (Exception e){
             Log.w("GCMRegIntentService", "Registration Error");
             registrationComplete = new Intent(REGISTRATION_ERROR);
         }
-
         //sending the broadcast that the registration is complete
         LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
