@@ -1,5 +1,6 @@
 package cornez.com.pushnotificationz;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -37,14 +38,15 @@ public class GCMPushReceiverService extends GcmListenerService {
         int requestCode = 0;
         PendingIntent pendingIntent = PendingIntent.getActivity(this, requestCode, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder noBuilder = new NotificationCompat.Builder(this)
+        Notification notification = new Notification.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentText(message)
+                .setSound(sound)
                 .setContentTitle("PushNotification")
                 .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent).build();
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, noBuilder.build()); //0 = ID of notification
+        notificationManager.notify(0, notification); //0 = ID of notification
     }
 
 }

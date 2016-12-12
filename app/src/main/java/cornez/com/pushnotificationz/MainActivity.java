@@ -6,6 +6,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv1;
     private Button b1;
     private EditText et;
+    private Uri sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 et=(EditText)findViewById(R.id.body);
                 tv1=(TextView)findViewById(R.id.name);
                 b1=(Button)findViewById(R.id.send);
+                sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
                 b1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
                         Notification notify=new Notification.Builder(getApplicationContext())
                                 .setContentTitle(title)
+                                .setSound(sound)
                                 .setContentText(body)
                                 .setSmallIcon(R.mipmap.ic_launcher).build();
                         notif.notify(0, notify);
