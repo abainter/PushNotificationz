@@ -24,7 +24,8 @@ public class GCMPushReceiverService extends GcmListenerService {
     @Override
     public void onMessageReceived(String from, Bundle data){
         //getting the message from the bundle
-        String message = data.getString("message");
+        Bundle notification = (Bundle)data.get("notification");
+        String message = notification.getString("body");
         //displaying a notification with the data
         sendNotification(message);
     }
